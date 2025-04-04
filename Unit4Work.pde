@@ -12,12 +12,15 @@ void setup(){
 }
 void draw(){
   background(beige);
-  face(200,100); // x,y
+  face(200,100,.5); // x,y
+  face(400,400,0.5);
   //face(500,-200);
 }
-void face(int x, int y) {
+void face(int x, int y, float s) {
   pushMatrix();
-  translate(x,y); 
+  translate(x,y);
+  scale(s); 
+  rotate(PI/4);
   
   skin();
   hair();

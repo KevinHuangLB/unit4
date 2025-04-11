@@ -24,9 +24,9 @@ void chicken(int x, int y){
   translate(x,y);
   
   body();
-  //leg();
-  //leg();
-  //face();
+  leg(50,100);
+  leg(150,100);
+  face(200);
   
   
   popMatrix();
@@ -40,6 +40,14 @@ void body(){
 void leg(int x, int y){
   strokeWeight(10);
   stroke(orange);
-  
+  line(x,200,x,200 + y);
+}
+void face(int size){
+  stroke(black);
+  strokeWeight(3);
+  rect(150,50 - size,size,size);
+  // beak
+  fill(orange);
+  triangle(150 + size, 50 - size / 2, 150 + size + size / 3, 50 - size / 2, 150 + size, 50);
   
 }

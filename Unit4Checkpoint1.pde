@@ -16,17 +16,18 @@ void setup(){
 }
 void draw(){
   background(white);
-  chicken(300,200);
+  chicken(300,200,1);
  
 }
-void chicken(int x, int y){
+void chicken(int x, int y, float s){
   pushMatrix();
   translate(x,y);
+  scale(s);
   
   body();
   leg(50,100);
   leg(150,100);
-  face(200);
+  face();
   
   
   popMatrix();
@@ -42,12 +43,17 @@ void leg(int x, int y){
   stroke(orange);
   line(x,200,x,200 + y);
 }
-void face(int size){
+void face(){
   stroke(black);
   strokeWeight(3);
-  rect(150,50 - size,size,size);
+  rect(150,-150,200,200);
   // beak
   fill(orange);
-  triangle(150 + size, 50 - size / 2, 150 + size + size / 3, 50 - size / 2, 150 + size, 50);
+  triangle(350,50,425,-25,350,-25);
+  // eye
+  fill(white);
+  rect(290,-80,30,30);
+  fill(black);
+  rect(297.5,-73.5,16,16);
   
 }

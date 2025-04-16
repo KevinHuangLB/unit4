@@ -11,49 +11,58 @@ color white = #FFFFFF;
 color orange = #F5983B;
 
 
-void setup(){
-  size(800,600);  
-}
-void draw(){
+void setup() {
+  size(800, 600);
   background(white);
-  chicken(300,200,1);
- 
+  int i = 0;
+  int chickenX = 25;
+  int chickenY = 50;
+  while (i < 12) {
+    chicken(chickenX, chickenY, 0.33333);
+    chickenX += 200;
+    i++;
+    if (chickenX > 700) {
+      chickenY += 200;
+      chickenX = 25;
+    }
+  }
 }
-void chicken(int x, int y, float s){
+void chicken(int x, int y, float s) {
   pushMatrix();
-  translate(x,y);
+  translate(x, y);
   scale(s);
-  
+
   body();
-  leg(50,100);
-  leg(150,100);
+  leg(50, 100);
+  leg(150, 100);
   face();
-  
-  
+
+
   popMatrix();
 }
-void body(){
-  fill(darkWhite);
+void body() {
+  fill(229, random(142, 194), random(28,148));
   stroke(black);
   strokeWeight(3);
-  rect(0,0,200,200);
+  rect(0, 0, 200, 200);
 }
-void leg(int x, int y){
+void leg(int x, int y) {
   strokeWeight(10);
   stroke(orange);
-  line(x,200,x,200 + y);
+  line(x, 200, x, 200 + y);
 }
-void face(){
+void face() {
   stroke(black);
   strokeWeight(3);
-  rect(150,-150,200,200);
+  rect(150, -150, 200, 200);
   // beak
   fill(orange);
-  triangle(350,50,425,-25,350,-25);
+  float ranBeak = random(50,100);
+  triangle(350, 50, 350 + ranBeak,50 - ranBeak, 350, 50 - ranBeak);
   // eye
   fill(white);
-  rect(290,-80,30,30);
+  int ranSize = int(random(25,60));
+  rect(290, -80,ranSize,ranSize);
   fill(black);
-  rect(297.5,-73.5,16,16);
-  
+  rect(290 + ranSize / 4, -80 + ranSize / 4, ranSize / 2, ranSize / 2);
 }

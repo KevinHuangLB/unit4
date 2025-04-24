@@ -13,8 +13,9 @@ color orange = #F5983B;
 void setup() {
   size(800, 600);
   background(white);
-  
-//chicken(200,200,1);
+
+  chicken(200, 200, 1);
+  sheep(100, 500, 1);
 }
 void chicken(int x, int y, float s) {
   pushMatrix();
@@ -61,4 +62,18 @@ void chickenTop(int x) {
     rect(x, -200, 20, 50);
     x += random(20, 30);
   }
+}
+
+void sheep(int x, int y, float s){
+  pushMatrix();
+  translate(x,y);
+  scale(s);
+  
+  sheepBody();
+  
+  popMatrix();
+}
+
+void sheepBody(){
+  
 }

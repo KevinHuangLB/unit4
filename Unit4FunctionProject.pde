@@ -9,13 +9,15 @@ color blue = #669bbc;
 color darkWhite = #CBCBCB;
 color white = #FFFFFF;
 color orange = #F5983B;
+color sheepWhite = #f6f6da;
+color sheepWhiteDark = #A0A09E;
 
 void setup() {
   size(800, 600);
   background(white);
 
-  chicken(200, 200, 1);
-  sheep(100, 500, 1);
+  //chicken(200, 200, 1);
+  sheep(300, 300, 1);
 }
 void chicken(int x, int y, float s) {
   pushMatrix();
@@ -64,16 +66,74 @@ void chickenTop(int x) {
   }
 }
 
-void sheep(int x, int y, float s){
+void sheep(int x, int y, float s) {
   pushMatrix();
-  translate(x,y);
+  translate(x, y);
   scale(s);
-  
+
   sheepBody();
-  
+
   popMatrix();
 }
 
-void sheepBody(){
-  
+void sheepBody() {
+  fill(sheepWhite);
+  strokeWeight(3);
+  stroke(sheepWhiteDark);
+  int i = 0;
+  float woolNum = random(200, 250);
+  while (i < woolNum) {
+    int pos = int(random(1, 16));
+    switch(pos) {
+    case 1:
+      square(random(-100,-50), random(-100,-50), random(50, 60));
+      break;
+    case 2:
+      square(random(-50,0), random(-100,-50), random(50, 60));
+      break;
+    case 3:
+      square(random(0,50), random(-100,-50), random(50, 60));
+      break;
+    case 4:
+      square(random(50,100), random(-100,-50), random(50, 60));
+      break;
+    case 5:
+      square(random(100,150), random(-100,-50), random(50, 60));
+      break;
+    case 6:
+      square(random(-100,-50), random(-50,0), random(50, 60));
+      break;
+    case 7:
+      square(random(-50,0), random(-50,0), random(50, 60));
+      break;
+    case 8:
+      square(random(0,50), random(-50,0), random(50, 60));
+      break;
+    case 9:
+      square(random(50,100), random(-50,0), random(50, 60));
+      break;
+    case 10:
+      square(random(100,150), random(-50,0), random(50, 60));
+      break;
+    case 11:
+      square(random(-100,-50), random(0,50), random(50, 60));
+      break;
+    case 12:
+      square(random(-50,0), random(0,50), random(50, 60));
+      break;
+    case 13:
+      square(random(0,50), random(0,50), random(50, 60));
+      break;
+    case 14:
+      square(random(50,100), random(0,50), random(50, 60));
+      break;
+    case 15:
+      square(random(100,150), random(0,50), random(50, 60));
+      break;
+    }
+    i++;
+  }
+}
+void sheepHead(){
+  square(
 }
